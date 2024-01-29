@@ -7,12 +7,47 @@ const createGrid = (table) => {
         const tr = document.createElement('tr');
         for(let w = 0; w < 10; w++){
             const td = document.createElement('td');
-            if(i === 0) {
-                td.className = `${letterArray[w]}1`;
-                tr.append(td);
-            } else {
-                td.className = `${letterArray[w]}${w + 1}`;
-                tr.append(td);
+            switch(i){
+                case 0:
+                    td.className = `${letterArray[w]}1`;
+                    tr.append(td);
+                    break;
+                case 1:
+                    td.className = `${letterArray[w]}2`;
+                    tr.append(td);
+                    break;
+                case 2:
+                    td.className = `${letterArray[w]}3`;
+                    tr.append(td);
+                    break;
+                case 3:
+                    td.className = `${letterArray[w]}4`;
+                    tr.append(td);
+                    break;
+                case 4:
+                    td.className = `${letterArray[w]}5`;
+                    tr.append(td);
+                    break;
+                case 5:
+                    td.className = `${letterArray[w]}6`;
+                    tr.append(td);
+                    break;
+                case 6:
+                    td.className = `${letterArray[w]}7`;
+                    tr.append(td);
+                    break;
+                case 7:
+                    td.className = `${letterArray[w]}8`;
+                    tr.append(td);
+                    break;
+                case 8:
+                    td.className = `${letterArray[w]}9`;
+                    tr.append(td);
+                    break;
+                case 9:
+                    td.className = `${letterArray[w]}10`;
+                    tr.append(td);
+                    break;
             }
         }
         table.appendChild(tr);
