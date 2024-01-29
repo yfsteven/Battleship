@@ -19,6 +19,11 @@ body {
 }
 
 td {
-    border: 25px solid black;
-   
+    height: 30px;
+    width: 30px;
+    border: 1px solid black;
+
+}
+table {
+    border-collapse: collapse;
 }
