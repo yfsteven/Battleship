@@ -56,7 +56,7 @@ const createGrid = (table) => {
 createGrid(playerBlocksContainer);
 createGrid(enemyBlocksContainer);
 
-const allBlocks = document.querySelectorAll('.blocks');
+const allBlocks = document.querySelectorAll('td');
 
 allBlocks.forEach((block) => {
     block.addEventListener('click', () => {
@@ -75,8 +75,22 @@ class Ship {
         this.numOfHits++;
     }
     isSunk() {
-        if(this.length === this.numOfHits) {
-            this.sunk = true;
-        }
+        this.sunk = true;
     }
 }
+
+class Player {
+    constructor() {
+        this.ship1 = new Ship();
+        this.ship2 = new Ship();
+        this.ship3 = new Ship();
+        this.ship4 = new Ship();
+        this.ship5 = new Ship();
+        this.ship6 = new Ship();
+        this.ship7 = new Ship();
+        this.ship8 = new Ship();
+    }
+}
+
+const Player1 = new Player();
+console.log(Player1)
