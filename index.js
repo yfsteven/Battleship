@@ -1,8 +1,9 @@
 const playerBlocksContainer = document.getElementById('player-blocks-container');
 const enemyBlocksContainer = document.getElementById('enemy-blocks-container');
 
+const letterArray = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'];
+
 const createGrid = (table) => {
-    const letterArray = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'];
     for(let i = 0; i < 10; i++){
         const tr = document.createElement('tr');
         for(let w = 0; w < 10; w++){
@@ -58,18 +59,31 @@ createGrid(enemyBlocksContainer);
 
 const allBlocks = document.querySelectorAll('td');
 
+let coordinatesArray = [];
+
 allBlocks.forEach((block) => {
+    coordinatesArray.push(block.classList.value);
     block.addEventListener('click', () => {
-        console.log(block.outerHTML);
+        console.log(block.classList.value);
     });
 });
+
+const getCoordinates = (size) => {
+    let shipCoordinates = [];
+    for(let w = 0; w < size; w++){
+        shipCoordinates.push(coordinatesArray[w]);
+    }
+    return shipCoordinates;
+}
+
 
 
 class Ship {
     constructor() {
-        this.length = Math.round(Math.random()*5);
+        this.slength = Math.round(Math.random()*5);
         this.numOfHits = 0;
         this.sunk = false;
+        this.coordinates = getCoordinates(this.slength);
     }
     hit() {
         this.numOfHits++;
