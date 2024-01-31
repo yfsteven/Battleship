@@ -63,15 +63,12 @@ let coordinatesArray = [];
 
 allBlocks.forEach((block) => {
     coordinatesArray.push(block.classList.value);
-    block.addEventListener('click', () => {
-        console.log(block.classList.value);
-    });
 });
 
 const getCoordinates = (size) => {
     let shipCoordinates = [];
     for(let w = 0; w < size; w++){
-        shipCoordinates.push(coordinatesArray[w]);
+        shipCoordinates.push(coordinatesArray[Math.ceil(Math.random()*coordinatesArray.length)]);
     }
     return shipCoordinates;
 }
@@ -80,9 +77,9 @@ const getCoordinates = (size) => {
 
 class Ship {
     constructor() {
-        this.slength = Math.round(Math.random()*5);
+        this.slength = Math.ceil(Math.random()*5);
         this.numOfHits = 0;
-        this.sunk = false;
+        this.sunk = this.slength === this.numOfHits ? true : false;
         this.coordinates = getCoordinates(this.slength);
     }
     hit() {
@@ -106,5 +103,19 @@ class Player {
     }
 }
 
-const Player1 = new Player();
-console.log(Player1)
+class Gameboard {
+    constructor() {
+        this.player = new Player();
+        this.enemy = new Player();
+    }
+    
+}
+
+const gameStart = new Gameboard()
+allBlocks.forEach((block) => {
+    coordinatesArray.push(block.classList.value);
+    block.addEventListener('click', () => {
+        gameStart.enemy.ship1.coordinates.includes(block.classList.value) ?  console.log('hit') : console.log('Nthing');
+    });
+});
+console.log(gameStart)
