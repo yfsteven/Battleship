@@ -57,6 +57,15 @@ const createGrid = (table) => {
 createGrid(playerBlocksContainer);
 createGrid(enemyBlocksContainer);
 
+
+
+
+
+
+
+
+
+/*
 const allBlocks = document.querySelectorAll('td');
 
 let coordinatesArray = [];
@@ -65,22 +74,19 @@ allBlocks.forEach((block) => {
     coordinatesArray.push(block.classList.value);
 });
 
-const getCoordinates = (size) => {
-    let shipCoordinates = [];
-    for(let w = 0; w < size; w++){
-        shipCoordinates.push(coordinatesArray[Math.ceil(Math.random()*coordinatesArray.length)]);
-    }
-    return shipCoordinates;
-}
-
-
-
 class Ship {
     constructor() {
         this.slength = Math.ceil(Math.random()*5);
         this.numOfHits = 0;
         this.sunk = this.slength === this.numOfHits ? true : false;
         this.coordinates = getCoordinates(this.slength);
+    }
+    getCoordinates(size) {
+        let shipCoordinates = [];
+        for(let w = 0; w < size; w++){
+            shipCoordinates.push(coordinatesArray[Math.ceil(Math.random()*coordinatesArray.length)]);
+        }
+        return shipCoordinates;
     }
     hit() {
         this.numOfHits++;
@@ -90,18 +96,22 @@ class Ship {
     }
 }
 
+const ship1 = new Ship();
+const ship2 = new Ship();
+const ship3 = new Ship();
+const ship4 = new Ship();
+const ship5 = new Ship();
+const ship6 = new Ship();
+const ship7 = new Ship();
+const ship8 = new Ship();
+
 class Player {
     constructor() {
-        this.ship1 = new Ship();
-        this.ship2 = new Ship();
-        this.ship3 = new Ship();
-        this.ship4 = new Ship();
-        this.ship5 = new Ship();
-        this.ship6 = new Ship();
-        this.ship7 = new Ship();
-        this.ship8 = new Ship();
+        this.turn = false;
     }
 }
+
+
 
 class Gameboard {
     constructor() {
@@ -111,11 +121,10 @@ class Gameboard {
     
 }
 
-const gameStart = new Gameboard()
 allBlocks.forEach((block) => {
     coordinatesArray.push(block.classList.value);
     block.addEventListener('click', () => {
         gameStart.enemy.ship1.coordinates.includes(block.classList.value) ?  console.log('hit') : console.log('Nthing');
     });
 });
-console.log(gameStart)
+*/
